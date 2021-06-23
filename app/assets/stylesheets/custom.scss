@@ -1,0 +1,20 @@
+@import "bootstrap";
+
+.post {
+  &.card {
+    width: 18rem;
+    height: 26rem;
+  }
+
+  .card-header {
+    height: 5rem;
+  }
+
+  .card-body {
+    height: 15rem;
+  }
+
+  .card-footer {
+  height: 6rem;
+  }
+} 

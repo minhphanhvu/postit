@@ -4,6 +4,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    render plain: "I'm in posts#show page"
+    @post = Post.find_by_id(params[:id])
   end
 end

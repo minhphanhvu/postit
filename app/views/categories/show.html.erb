@@ -1,0 +1,12 @@
+<% title = "Posts Tagged \"#{@category.name.capitalize}\"" %>
+<%= render 'shared/header', title: title %>
+
+<section class="row justify-content-center"> 
+  <% if @category_posts.empty? %>
+    No posts to show.
+  <% else %>
+    <% @category_posts.each do |post| %>
+      <%= render 'posts/post', post: post %>
+    <% end %>
+  <%end %>
+</section>
