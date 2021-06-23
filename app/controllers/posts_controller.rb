@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    render plain: "I'm in posts#index page"
+    @posts = Post.all
   end
 
   def show
