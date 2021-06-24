@@ -12,14 +12,28 @@
   <div class="collapse navbar-collapse" id="basicExampleNav">
 
     <!-- Links -->
-    <ul class='navbar-nav'>
+    <ul class='navbar-nav align-items-center'>
       <li class='nav-item'>
         <%= link_to 'Posts', posts_path, class: 'nav-link' %>
       </li>
       <li class='nav-item'>
         <%= link_to 'Categories', categories_path, class: 'nav-link' %>
       </li>
+      <div class="btn-group nav-item dropdown">
+         <button data-turbo="false" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories <span class="caret"></span>
+        </button>
+        <ul class='dropdown-menu'>
+          <% Category.all.each do |category| %>
+            <li class='dropdown-item'>
+              <%= link_to category.name, category_path(category) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <li class='nav-item'>
+        <%= link_to 'New Post', new_post_path, class: 'btn btn-secondary nav-link' %>
+      </li>
     </ul>
   </div>
-  <button type="button" class="btn btn-info"><%= link_to 'Create a new Post!', new_post_path %></button>
 </nav>
