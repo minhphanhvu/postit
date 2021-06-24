@@ -3,6 +3,7 @@
 <%= render 'shared/nav' %>
 <section class='jumbotron text-center'>
   <h1 class='jumbotron-heading'><%= title %></h1>
+  <%= render 'shared/flash' %>
   <% if post %>
     <p><%= post.url %></p>
     <p><%= "#{post.creator.username} #{post.created_at}" %></p>

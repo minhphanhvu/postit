@@ -1,5 +1,18 @@
 @import "bootstrap";
 
+.navbar {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.field_with_errors {
+  width: 100%;
+}
+
 .post {
   &.card {
     width: 18rem;
@@ -17,4 +30,8 @@
   .card-footer {
   height: 6rem;
   }
-} 
+}
+
+.btn {
+  margin-right: 5px;
+}
