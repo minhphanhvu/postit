@@ -7,8 +7,6 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("bootstrap")
-require("packs/custom")
-
-// stylesheets
+require("bootstrap");
 require("../stylesheets/application.scss")
+require("packs/custom")

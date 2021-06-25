@@ -20,13 +20,13 @@
         <%= link_to 'Categories', categories_path, class: 'nav-link' %>
       </li>
       <div class="btn-group nav-item dropdown">
-         <button data-turbo="false" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
             Categories <span class="caret"></span>
         </button>
         <ul class='dropdown-menu'>
           <% Category.all.each do |category| %>
             <li class='dropdown-item'>
-              <%= link_to category.name, category_path(category) %>
+              <%= link_to category.name.capitalize, category_path(category) %>
             </li>
           <% end %>
         </ul>
