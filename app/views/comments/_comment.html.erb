@@ -4,6 +4,6 @@
   </main>
   
   <footer class='card-footer'>
-    <%= "#{comment.creator.username} #{comment.created_at}" %>
+    <%= "#{comment.creator.username} #{display_datetime(comment.created_at)}" %>
   </footer>
 </article>
