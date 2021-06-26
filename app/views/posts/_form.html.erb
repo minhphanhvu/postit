@@ -14,6 +14,12 @@
       <%= f.label :description %>
       <%= f.text_area :description, rows: 5, class: 'form-control' %>
     </div>
+    <div class='form-group w-100 mt-2'>
+      <%= f.label "Categories:" %>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |cb| %>
+        <% cb.label(class: 'checkbox inline mx-2') {cb.check_box(class: 'checkbox mr-1') + cb.text.capitalize} %>
+      <% end %>
+    <div>
     <%= f.submit(options={class: "btn btn-outline-primary mt-3"}) %>
   <% end %>
 </section>

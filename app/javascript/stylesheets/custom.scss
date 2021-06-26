@@ -16,6 +16,7 @@ a {
 
 .post {
   &.card {
+    padding: 0;
     width: 18rem;
     height: 26rem;
   }
@@ -26,10 +27,6 @@ a {
 
   .card-body {
     height: 15rem;
-  }
-
-  .card-footer {
-  height: 6rem;
   }
 }
 

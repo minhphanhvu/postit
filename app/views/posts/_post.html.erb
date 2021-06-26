@@ -1,4 +1,4 @@
-<article class='card bg-light m-3 post'>
+<article class='card text-center m-2 post'>
   <header class='card-header'>
     <h5><%= post.title %></h5>
   </header>
@@ -12,9 +12,14 @@
 
   <footer class='card-footer'>
     <%= "#{post.creator.username} #{post.created_at}" %>
-    <nav class='btn-group mt-auto'>
+    <nav class='btn-group mt-2'>
       <%= button_to 'View', post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary' %>
       <%= button_to 'Edit', edit_post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary border-left-0' %>
     </nav>
+    <div class='mt-2'>
+      <% post.categories.each do |category| %>
+        <%= link_to "#{category.name.capitalize}", category_path(category), class: 'badge bg-dark p-1' %>
+      <% end %>
+    </div>
   </footer>
 </article>

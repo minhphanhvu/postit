@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   resources :posts, except: [:destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :categories, only: [:index, :new, :show, :create]
+  resources :categories, only: [:new, :show, :create]
 end
