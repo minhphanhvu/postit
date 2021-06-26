@@ -16,9 +16,9 @@ chili = Post.create!(title: 'How to make chili oil', url: 'woksoflife.com', desc
 compost = Post.create!(title: 'How to make compost', url: 'urbangardening.com', description: 'compost recipe using coffee grounds', creator: nancy)
 bok_choy = Post.create!(title: 'Why bok choy is great for cats', url: 'loveyourcats.com', description: "argument for more greens in your cat's diet", creator: victor)
 
-Comment.create!(body: 'I agree!', user: nancy, post: bok_choy)
-Comment.create!(body: 'This looks delicious!', user: victor, post: chili)
-Comment.create!(body: "I'm commenting on my own post.", user: nancy, post: chili)
+Comment.create!(body: 'I agree!', creator: nancy, post: bok_choy)
+Comment.create!(body: 'This looks delicious!', creator: victor, post: chili)
+Comment.create!(body: "I'm commenting on my own post.", creator: nancy, post: chili)
 
 recipes = Category.create!(name: "recipes")
 food = Category.create!(name: "food")
