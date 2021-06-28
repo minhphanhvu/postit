@@ -7,11 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 Comment.destroy_all
+Category.destroy_all
+PostCategory.destroy_all
 
-test_user = User.create!(username: 'testUser', email: 'test@gmail.com')
+test_user = User.create!(username: 'testUser', email: 'test@gmail.com', password: 'password')
 
-nancy = User.create!(username: 'Nancy', email: 'nancy@gmail.com ')
-victor = User.create!(username: 'Victor', email: 'victor@gmail.com')
+nancy = User.create!(username: 'Nancy', email: 'nancy@gmail.com', password: 'password')
+victor = User.create!(username: 'Victor', email: 'victor@gmail.com', password: 'password')
 chili = Post.create!(title: 'How to make chili oil', url: 'woksoflife.com', description: 'great recipe on how to make chili oil', creator: nancy)
 compost = Post.create!(title: 'How to make compost', url: 'urbangardening.com', description: 'compost recipe using coffee grounds', creator: nancy)
 bok_choy = Post.create!(title: 'Why bok choy is great for cats', url: 'loveyourcats.com', description: "argument for more greens in your cat's diet", creator: victor)
