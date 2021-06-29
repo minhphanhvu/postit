@@ -26,18 +26,42 @@
               <%= link_to category.name.capitalize, category_path(category) %>
             </li>
           <% end %>
-          <li class="dropdown-divider"></li>
-          <li class="dropdown-item">
-            <%= link_to(new_category_path) do %>
-              <i class="icon-plus"></i>
-                New Category 
-            <% end %>
-          </li>
+
+          <% if logged_in? %>
+            <li class="dropdown-divider"></li>
+            <li class="dropdown-item">
+              <%= link_to(new_category_path) do %>
+                <i class="icon-plus"></i>
+                  New Category 
+              <% end %>
+            </li>
+          <% end %>
         </ul>
       </div>
-      <li class='nav-item'>
-        <%= link_to 'New Post', new_post_path, class: 'btn btn-secondary nav-link' %>
-      </li>
+
+      <% if logged_in? %>
+        <li class='nav-item'>
+          <%= link_to 'New Post', new_post_path, class: 'btn btn-secondary nav-link' %>
+        </li>
+      <% end %>
     </ul>
   </div>
+
+  <ul class='navbar-nav flex-row ml-md-auto d-none d-md-flex'>
+  <% if logged_in? %>
+      <li class='nav-item'>
+        <%= link_to 'Log Out', logout_path, class: 'nav-link' %>
+      </li>
+      <li>
+        <%= link_to 'Profile', '', class: 'nav-link text-right' %>
+      </li>
+    <% else %>
+      <li class='nav-item'>
+        <%= link_to 'Register', '', class: 'nav-link' %>
+      </li>
+      <li class='nav-item'>
+        <%= link_to 'Log In', login_path, class: 'nav-link' %>
+      </li>
+    <% end %>
+  </ul>
 </nav>

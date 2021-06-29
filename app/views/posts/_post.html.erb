@@ -14,7 +14,9 @@
     <%= "#{post.creator.username} #{display_datetime(post.created_at)}" %>
     <nav class='btn-group mt-2'>
       <%= button_to 'View', post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary' %>
-      <%= button_to 'Edit', edit_post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary border-left-0' %>
+      <% if current_user == post.creator %>
+        <%= button_to 'Edit', edit_post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary border-left-0' %>
+      <% end %>
     </nav>
     <div class='mt-2'>
       <% post.categories.each do |category| %>
