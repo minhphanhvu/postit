@@ -9,6 +9,7 @@ User.destroy_all
 Comment.destroy_all
 Category.destroy_all
 PostCategory.destroy_all
+Vote.destroy_all
 
 test_user = User.create!(username: 'testUser', email: 'test@gmail.com', password: 'password')
 
@@ -30,3 +31,7 @@ PostCategory.create!(post: chili, category: recipes)
 PostCategory.create!(post: chili, category: food)
 PostCategory.create!(post: bok_choy, category: food)
 PostCategory.create!(post: bok_choy, category: cat)
+
+Vote.create(user_id: 1, vote: true, voteable: Post.find(2))
+Vote.create(user_id: 1, vote: false, voteable: Comment.find(1))
+Vote.create(user_id: 2, vote: true, voteable: Post.find(2))
