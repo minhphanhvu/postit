@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## A PostIt app that allows users to register and post their short articles.
 
-Things you may want to cover:
+### Functionalities
 
-* Ruby version
+* Allow users to register
 
-* System dependencies
+* Allow users to vote on their favorite posts and comments
 
-* Configuration
+## Instructions for development environment
 
-* Database creation
+* Run `bundle install`
 
-* Database initialization
+* Make sure npm using version 12.x, ruby version 3 (check Gemfile)
 
-* How to run the test suite
+* Development and production both use PostgreSQL. Make sure you have that installed and running.
 
-* Services (job queues, cache servers, search engines, etc.)
+* Run `bundle exec rails s` to run development server.
 
-* Deployment instructions
-
-* ...
+# See the demo [here](https://finnspostit.herokuapp.com/) hosted on heroku.
