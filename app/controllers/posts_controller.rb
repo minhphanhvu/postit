@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update, :vote]
   before_action :require_user, except: [:index, :show]
 
   def index
@@ -36,6 +36,16 @@ class PostsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def vote
+    existing_vote = @post.votes.where(user_id: current_user.id)
+    if existing_vote.empty?
+      Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
+    else
+      existing_vote.first.update(vote: params[:vote])
+    end
+    redirect_back fallback_location: root_path
   end
 
   private

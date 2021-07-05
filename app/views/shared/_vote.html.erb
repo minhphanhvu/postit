@@ -1,0 +1,29 @@
+<% if obj.class == Post %>
+  <% url_true = vote_post_path(obj, vote: true) %>
+  <% url_false = vote_post_path(obj, vote: false) %>
+<% elsif obj.class == Comment %>
+  <% url_true = vote_post_comment_path(obj.post, obj, vote: true) %>
+  <% url_false = vote_post_comment_path(obj.post, obj, vote: false) %>
+<% end %>
+
+<% if !current_user || obj.votes.where(user_id: current_user.id, vote: true).empty? %>
+  <%= link_to url_true, method: 'post' do %>
+    <%#= fa_icon 'fas fa-arrow-up fa-lg' %>
+    <%= "<i class='fa fa-arrow-up fa-lg'></i>".html_safe %>
+  <% end %>
+<% else %>
+  <%#= fa_icon 'fas fa-arrow-up fa-lg', class: 'fa-disabled' %>
+  <%= "<i class='fa fa-arrow-up fa-lg disabled'></i>".html_safe %>
+<% end %>
+</br>
+<%= obj.total_votes %>
+</br>
+<% if !current_user || obj.votes.where(user_id: current_user.id, vote: false).empty? %>
+  <%= link_to url_false, method: 'post' do %>
+    <%#= fa_icon 'fas fa-arrow-down fa-lg' %>
+    <%= "<i class='fa fa-arrow-down fa-lg'></i>".html_safe %>
+  <% end %>
+<% else %>
+  <%#= fa_icon 'fas fa-arrow-down fa-lg', class: 'disabled' %>
+  <%= "<i class='fa fa-arrow-down fa-lg disabled'></i>".html_safe %>
+<% end %>

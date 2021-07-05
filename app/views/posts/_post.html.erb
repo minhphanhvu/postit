@@ -1,27 +1,35 @@
 <article class='card text-center m-2 post'>
-  <header class='card-header'>
-    <h5><%= post.title %></h5>
-  </header>
+  <div class='row no-gutters h-100'>
+    <aside class='col-md-2 votes text-center'>
+      <%= render 'shared/vote', obj: post %>
+    </aside>
 
-  <main class='card-body'>
-    <%= link_to fix_url(post.url), fix_url(post.url) %>
-    <p class='card-text'>
-      <%= post.description %>
-    </p>
-  </main>
+    <section class='col-md-10'>
+      <header class='card-header'>
+        <h5><%= post.title.truncate(30) %></h5>
+      </header>
 
-  <footer class='card-footer'>
-    <%= "#{post.creator.username} #{display_datetime(post.created_at)}" %>
-    <nav class='btn-group mt-2'>
-      <%= button_to 'View', post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary' %>
-      <% if current_user == post.creator %>
-        <%= button_to 'Edit', edit_post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary border-left-0' %>
-      <% end %>
-    </nav>
-    <div class='mt-2'>
-      <% post.categories.each do |category| %>
-        <%= link_to "#{category.name.capitalize}", category_path(category), class: 'badge bg-dark p-1' %>
-      <% end %>
-    </div>
-  </footer>
+      <main class='card-body'>
+        <%= link_to fix_url(post.url), fix_url(post.url) %>
+        <p class='card-text'>
+          <%= post.description.truncate(130) %>
+        </p>
+      </main>
+
+      <footer class='card-footer'>
+        <%= "#{post.creator.username} #{display_datetime(post.created_at)}" %>
+        <nav class='btn-group mt-auto'>
+          <%= button_to 'View', post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary' %>
+          <% if current_user == post.creator %>
+            <%= button_to 'Edit', edit_post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary border-left-0' %>
+          <% end %>
+        </nav>
+        <div class='mt-2'>
+          <% post.categories.each do |category| %>
+            <%= link_to "#{category.name.capitalize}", category_path(category), class: 'badge bg-dark p-1' %>
+          <% end %>
+        </div>
+      </footer>
+    </section>
+  </div>
 </article>

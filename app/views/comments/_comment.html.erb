@@ -1,9 +1,16 @@
 <article class="card bg-light mb-3" style="max-width: 18rem">
-  <main class="card-body">
-    <p class="card-text"><%= comment.body %></p>
-  </main>
-  
-  <footer class='card-footer'>
-    <%= "#{comment.creator.username} #{display_datetime(comment.created_at)}" %>
-  </footer>
+  <div class='row no-gutters h-100'>
+    <aside class='col-md-2 votes text-center'>
+      <%= render 'shared/vote', obj: comment %>
+    </aside>
+    <section class='col-md-10'>
+      <main class="card-body">
+        <p class="card-text"><%= comment.body %></p>
+      </main>
+      
+      <footer class='card-footer'>
+        <%= "#{comment.creator.username} #{display_datetime(comment.created_at)}" %>
+      </footer>
+    </section>
+  </div>
 </article>
