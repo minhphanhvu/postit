@@ -11,3 +11,7 @@ import "@fortawesome/fontawesome-free/js/all"
 require("bootstrap")
 require("../stylesheets/application.scss")
 require("packs/custom")
+
+// For the views
+window.jQuery = $;
+window.$ = $;

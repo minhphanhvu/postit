@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :vote]
-  before_action :require_user, except: [:index, :show]
+  before_action :require_user, except: [:index, :show, :vote]
 
   def index
     @posts = Post.all
@@ -40,12 +40,18 @@ class PostsController < ApplicationController
 
   def vote
     existing_vote = @post.votes.where(user_id: current_user.id)
-    if existing_vote.empty?
-      Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
-    else
-      existing_vote.first.update(vote: params[:vote])
+    respond_to do |format|
+      if existing_vote.empty?
+        Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
+      else
+        existing_vote.first.update(vote: params[:vote])
+      end
+      @upvote = params[:vote]
+      format.html do
+        redirect_back fallback_location: root_path
+      end
+      format.js { render 'vote', layout: false }
     end
-    redirect_back fallback_location: root_path
   end
 
   private
@@ -57,4 +63,5 @@ class PostsController < ApplicationController
   def set_post
     @post = Post.find_by_id(params[:id])
   end
+
 end

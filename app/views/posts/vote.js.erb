@@ -1,0 +1,12 @@
+$total_votes = $('#<%= @post.class.to_s.downcase %>_<%= @post.id %>_votes');
+$total_votes.text(<%= @post.total_votes %>);
+$upvote = $total_votes.siblings('.upvote');
+$downvote = $total_votes.siblings('.downvote');
+
+if (<%= @upvote %>) {
+  $upvote.html('<i><i class="fa fa-arrow-up fa-lg disabled"></i>');
+  $downvote.html('<%= link_to(vote_post_path(@post, vote: false), method: 'post', remote: true) {|x| '<i class="fa fa-arrow-down fa-lg"></i>'.html_safe } %>');
+} else {
+  $downvote.html('<i><i class="fa fa-arrow-down fa-lg disabled"></i>');
+  $upvote.html('<%= link_to(vote_post_path(@post, vote: true), method: 'post', remote: true) {|x| '<i class="fa fa-arrow-up fa-lg"></i>'.html_safe } %>');
+}
