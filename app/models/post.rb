@@ -7,6 +7,8 @@ class Post < ApplicationRecord
   validates :title, length: { minimum: 5 }
   validates :url, uniqueness: true
 
+  before_save :generate_slug
+
   # Votes
   has_many :votes, as: :voteable
 
@@ -20,5 +22,13 @@ class Post < ApplicationRecord
 
   def downvotes
     self.votes.where(vote: false).size
+  end
+
+  def to_param
+    self.slug
+  end
+
+  def generate_slug
+    self.slug = self.title.gsub(" ", "-").downcase
   end
 end

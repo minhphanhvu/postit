@@ -18,7 +18,11 @@
 <% end %>
 </span>
 </br>
-<span id="<%= obj.class.to_s.downcase %>_<%= obj.id %>_votes"><%= obj.total_votes %></span>
+<% if obj.class == Post %>
+  <span id="<%= obj.class.to_s.downcase %>_<%= obj.slug %>_votes"><%= obj.total_votes %></span>
+<% else %>
+  <span id="<%= obj.class.to_s.downcase %>_<%= obj.id %>_votes"><%= obj.total_votes %></span>
+<% end %>
 </br>
 <span class="downvote">
   <% if !current_user || obj.votes.where(user_id: current_user.id, vote: false).empty? %>
