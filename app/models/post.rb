@@ -52,7 +52,7 @@ class Post < ApplicationRecord
     str = name.strip
     str.gsub! /\s*[^A-Za-z0-9]\s*/, "-"
     str.gsub! /-+/, "-"
-    str
+    str.downcase
   end
 
 end
