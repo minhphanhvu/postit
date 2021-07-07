@@ -4,9 +4,15 @@
 
 ### Functionalities
 
-* Allow users to register
+* Allow users to register and post their articles
+
+* Allow users to make comments on each post
 
 * Allow users to vote on their favorite posts and comments
+
+* AJAX to reduce performance cost
+
+* Use slug to expose URLs
 
 ## Instructions for development environment
 
@@ -19,3 +25,5 @@
 * Run `bundle exec rails s` to run development server.
 
 # See the demo [here](https://finnspostit.herokuapp.com/) hosted on heroku.
+
+### If you see any bug, please report on this GitHub page or email me at minhphanh.vu@gmail.com.
