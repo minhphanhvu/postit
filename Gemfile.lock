@@ -185,6 +185,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    voteable_finn (0.0.1)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -229,6 +230,7 @@ DEPENDENCIES
   sprockets-rails
   turbolinks (~> 5)
   tzinfo-data
+  voteable_finn
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)

@@ -1,4 +1,7 @@
 # Using Concerns
+# Module is extracted using gem
+
+=begin
 module Voteable
   extend ActiveSupport::Concern
 
@@ -18,6 +21,7 @@ module Voteable
     self.votes.where(vote: false).size
   end
 end
+=end
 
 =begin
 # Using normal metaprogramming
