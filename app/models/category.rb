@@ -14,7 +14,7 @@ class Category < ApplicationRecord
     the_slug = to_slug(self.name)
     cate = Category.find_by slug: the_slug
     count = 2
-    while post && post != self
+    while cate && cate != self
       the_slug = append_suffix(the_slug, count)
       cate = Category.find_by slug: the_slug
       count += 1
