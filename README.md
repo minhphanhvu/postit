@@ -16,6 +16,8 @@
 
 * Only admins can create new category
 
+* Only creators and admins can edit posts
+
 ## Test User
 
 * username: `testUser`
