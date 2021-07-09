@@ -16,6 +16,12 @@
 
 * Only admins can create new category
 
+## Test User
+
+* username: `testUser`
+
+* password: `password`
+
 ## Instructions for development environment
 
 * Run `bundle install`
