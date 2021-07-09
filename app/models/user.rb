@@ -11,4 +11,8 @@ class User < ApplicationRecord
   has_many :votes
 
   sluggable_column :username
+
+  def admin?
+    self.role == 'admin'
+  end
 end

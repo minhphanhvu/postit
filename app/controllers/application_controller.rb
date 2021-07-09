@@ -15,4 +15,13 @@ class ApplicationController < ActionController::Base
       redirect_back fallback_location: root_path
     end
   end
+
+  def require_admin
+    denied_access unless logged_in? && current_user.admin?
+  end
+
+  def denied_access
+    flash[:error] = 'You cannot do that.'
+    redirect_to root_path
+  end
 end

@@ -11,7 +11,7 @@ Category.destroy_all
 PostCategory.destroy_all
 Vote.destroy_all
 
-test_user = User.create!(username: 'testUser', email: 'test@gmail.com', password: 'password')
+test_user = User.create!(username: 'testUser', email: 'test@gmail.com', password: 'password', role: 'admin')
 
 nancy = User.create!(username: 'Nancy', email: 'nancy@gmail.com', password: 'password')
 victor = User.create!(username: 'Victor', email: 'victor@gmail.com', password: 'password')

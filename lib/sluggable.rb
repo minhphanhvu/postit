@@ -11,7 +11,7 @@ module Sluggable
   end
 
   def generate_slug
-    the_slug = to_slug(self.send(self.class.slu_column.to_sym))
+    the_slug = to_slug(self.send(self.class.slug_column.to_sym))
     obj = self.class.find_by slug: the_slug
     count = 2
     while obj && obj != self

@@ -14,6 +14,8 @@
 
 * Use slug to expose URLs
 
+* Only admins can create new category
+
 ## Instructions for development environment
 
 * Run `bundle install`
