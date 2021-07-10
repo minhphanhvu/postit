@@ -20,7 +20,7 @@
         <%= "#{post.creator.username} #{display_datetime(post.created_at)}" %>
         <nav class='btn-group mt-auto'>
           <%= button_to 'View', post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary' %>
-          <% if current_user == post.creator || current_user.admin? %>
+          <% if current_user == post.creator || (current_user && current_user.admin?)%>
             <%= button_to 'Edit', edit_post_path(post), method: 'get', class: 'btn btn-sm btn-outline-secondary border-left-0' %>
           <% end %>
         </nav>
