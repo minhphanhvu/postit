@@ -10,5 +10,6 @@
     <%= render 'shared/creator_details', obj: post %>
   <% elsif user %>
     <%= link_to 'Edit', edit_user_path(current_user.id) %>
+    <p>Time Zone: <%= current_user.time_zone %></p>
   <% end %>
 </section>
