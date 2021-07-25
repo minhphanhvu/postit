@@ -22,4 +22,8 @@ Rails.application.routes.draw do
   # Users
   resources :users, only: [:show, :create, :edit, :update]
   get '/register', to: 'users#new'
+
+  # Two authen
+  get '/pin', to: 'sessions#pin'
+  post '/pin', to: 'sessions#pin'
 end
