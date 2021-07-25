@@ -1,5 +1,6 @@
 <%= render 'shared/header', title: 'Posts', post: @post %>
 
-<section class="row justify-content-center"> 
+<section class="position-relative row justify-content-center"> 
   <%= render @posts %>
+  <%= will_paginate @posts, class: 'will_paginate' %>
 </section>
